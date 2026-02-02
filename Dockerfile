@@ -1,15 +1,12 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-# Install pipenv
-RUN pip install --no-cache-dir pipenv
+# Copy requirements
+COPY requirements.txt .
 
-# Copy Pipfile and Pipfile.lock
-COPY Pipfile Pipfile.lock ./
-
-# Install dependencies in a virtualenv managed by pipenv
-RUN pipenv install --deploy --system
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy your script and utils folder
 COPY main.py .

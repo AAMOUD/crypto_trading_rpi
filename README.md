@@ -14,9 +14,8 @@ A simple command-line interface for placing buy limit orders on Kraken exchange.
 
 ## Prerequisites
 
-- Python 3.11 or higher (3.13 recommended)
+- Python 3.13
 - Kraken API keys (public and private)
-- pipenv (for dependency management)
 
 ## Installation
 
@@ -28,9 +27,9 @@ git clone <repository-url>
 cd crypto_trading_rpi
 ```
 
-2. Install dependencies using pipenv:
+2. Install dependencies using pip:
 ```bash
-pipenv install
+pip install -r requirements.txt
 ```
 
 3. Create a `.env` file in the project root:
@@ -57,7 +56,7 @@ docker build -t crypto_trading_rpi .
 
 Activate the virtual environment:
 ```bash
-pipenv shell
+python -m venv venv && source venv/bin/activate
 ```
 
 #### Interactive Mode
@@ -139,8 +138,7 @@ crypto_trading_rpi/
 ├── utils/
 │   ├── __init__.py
 │   └── kraken.py        # Kraken API client implementation
-├── Pipfile              # Python dependencies
-├── Pipfile.lock         # Locked dependency versions
+├── requirements.txt     # Python dependencies
 ├── Dockerfile           # Docker container configuration
 ├── .env                 # API credentials (not in repo)
 └── README.md            # This file
